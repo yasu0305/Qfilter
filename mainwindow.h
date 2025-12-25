@@ -3,8 +3,7 @@
 
 #include <QMainWindow>
 #include <QHBoxLayout>
-#include <QCompleter>
-#include <QStringListModel>
+#include <QStringList>
 #include <QLineEdit>
 #include <QLabel>
 #include <QTimer>
@@ -21,9 +20,6 @@ public:
 
 public slots:
   void updateTime();
-  void onLineEditTextChanged(const QString &text);
-  void onCompleterActivated(const QString &text);
-  void onCompleterHighlighted(const QString &text);
   void onCompleterActivated(const QString &text);
 
 private:
@@ -32,7 +28,7 @@ private:
   QTimer *timer;
   QLineEdit *lineEdit;
   QStringList randomStrings;
-  QStringListModel *completerModel;
-  QCompleter *completer;
+  // FilteredCompleter を使用
+  class FilteredCompleter *filteredCompleter = nullptr;
 };
 #endif // MAINWINDOW_H

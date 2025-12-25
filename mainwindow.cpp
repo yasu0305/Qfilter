@@ -7,6 +7,7 @@
 #include <QDebug>
 #include <QCompleter>
 #include <QStringListModel>
+#include "filteredcompleter.h"
 #include <QLineEdit>
 #include <chrono>
 #include <QKeyEvent>
@@ -85,24 +86,14 @@ MainWindow::MainWindow(QWidget *parent)
   // }
   qDebug() << "Total:" << randomStrings.size() << "strings generated";
   
-  // QLineEditにコンプリーター機能を追加
-  completerModel = new QStringListModel(randomStrings, this);
-  completer = new QCompleter(completerModel, this);
-  completer->setCaseSensitivity(Qt::CaseInsensitive);
-  // PopupCompletion にして、矢印で選択しても即時編集されないようにする
-  completer->setCompletionMode(QCompleter::PopupCompletion);
-  completer->setWidget(lineEdit);
-  // activated はマウスクリック／Enterでの確定を受け取る
-  
-  // QLineEditのテキスト変更シグナルを接続
-  connect(lineEdit, &QLineEdit::textChanged, this, &MainWindow::onLineEditTextChanged);
-    // マウスで候補をクリックしたときに確定するためのシグナル接続
-      connect(completer, QOverload<const QString &>::of(&QCompleter::activated),
-        this, &MainWindow::onCompleterActivated);
-      // highlighted は選択ハイライト時に発生する（矢印キー移動時）。
-      // ここで何もしないことでハイライトによる即時確定を防ぐ。
-      connect(completer, QOverload<const QString &>::of(&QCompleter::highlighted),
-        this, &MainWindow::onCompleterHighlighted);
+  // FilteredCompleter を作成して接続
+  filteredCompleter = new FilteredCompleter(this);
+  filteredCompleter->setCandidates(randomStrings);
+  filteredCompleter->attachTo(lineEdit);
+  filteredCompleter->setCaseSensitivity(Qt::CaseInsensitive);
+  filteredCompleter->setCompletionMode(QCompleter::PopupCompletion);
+  connect(filteredCompleter, &FilteredCompleter::selectionConfirmed,
+          this, &MainWindow::onCompleterActivated);
   
   // タイマーを開始して時刻を更新
   timer = new QTimer(this);
@@ -113,17 +104,11 @@ MainWindow::MainWindow(QWidget *parent)
 
 void MainWindow::onCompleterActivated(const QString &text) {
   if (text.isEmpty()) return;
-  // QLineEditのtextChangedを再度トリガーしないようにブロックして設定
   if (lineEdit) {
     lineEdit->blockSignals(true);
     lineEdit->setText(text);
     lineEdit->blockSignals(false);
   }
-  if (completer && completer->popup()) completer->popup()->hide();
-}
-
-void MainWindow::onCompleterHighlighted(const QString & /*text*/) {
-  // intentionally empty: prevent highlighted items from immediately modifying the QLineEdit
 }
 
 MainWindow::~MainWindow() {}
@@ -133,28 +118,4 @@ void MainWindow::updateTime() {
   timeLabel->setText(timeStr);
 }
 
-void MainWindow::onLineEditTextChanged(const QString &text) {
-  // テキストが入力されたときに、マッチするものだけをフィルタリング
-  QStringList filteredList;
-  
-  if (text.isEmpty()) {
-    // 空の場合は全て表示
-    filteredList = randomStrings;
-  } else {
-    // テキストが含まれるものだけをフィルタリング
-    for (const QString &str : randomStrings) {
-      if (str.contains(text, Qt::CaseInsensitive)) {
-        filteredList.append(str);
-      }
-    }
-  }
-  
-  // モデルを更新
-  completerModel->setStringList(filteredList);
-  
-  // テキストが入力されている場合、ポップアップを表示
-  if (!text.isEmpty() && !filteredList.isEmpty()) {
-    completer->setCompletionPrefix(text);
-    completer->complete();
-  }
-}
+// filtering is handled by FilteredCompleter; no local implementation needed
