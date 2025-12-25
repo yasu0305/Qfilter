@@ -5,16 +5,11 @@
 #include <QRandomGenerator>
 #include <QStringList>
 #include <QDebug>
-#include <QCompleter>
-#include <QStringListModel>
 #include "filteredcompleter.h"
 #include <QLineEdit>
-#include <chrono>
-#include <QKeyEvent>
 #include <QWidget>
 #include <QVBoxLayout>
 #include <QApplication>
-#include <QAbstractItemView>
 #include <QScreen>
 
 // 単純化: カスタム keyPressEvent の実装を削除し、標準の QLineEdit を使用します
@@ -71,6 +66,12 @@ MainWindow::MainWindow(QWidget *parent)
   lineEdit->setPlaceholderText("Type here...");
   lineEdit->setStyleSheet("font-size: 11px;");
   mainLayout->addWidget(lineEdit);
+
+  // 追加の QLineEdit を作成（同じ候補で独立して動作）
+  lineEdit2 = new QLineEdit(this);
+  lineEdit2->setPlaceholderText("Another input...");
+  lineEdit2->setStyleSheet("font-size: 11px;");
+  mainLayout->addWidget(lineEdit2);
   
   // スペーサーを追加して下に余白を作る
   mainLayout->addStretch();
@@ -78,22 +79,19 @@ MainWindow::MainWindow(QWidget *parent)
   // ランダムな20文字の文字列を生成
   randomStrings = generateRandomStrings();
   
-  // 生成した文字列をqDebugで改行表示（デバッグ用）
-  // 10000個の場合はコメントアウト
-  // qDebug() << "Generated random strings:";
-  // for (int i = 0; i < randomStrings.size(); ++i) {
-  //   qDebug() << QString("[%1] %2").arg(i).arg(randomStrings[i]);
-  // }
-  qDebug() << "Total:" << randomStrings.size() << "strings generated";
-  
-  // FilteredCompleter を作成して接続
+  // FilteredCompleter を作成して接続（1つ目）
   filteredCompleter = new FilteredCompleter(this);
   filteredCompleter->setCandidates(randomStrings);
   filteredCompleter->attachTo(lineEdit);
   filteredCompleter->setCaseSensitivity(Qt::CaseInsensitive);
-  filteredCompleter->setCompletionMode(QCompleter::PopupCompletion);
-  connect(filteredCompleter, &FilteredCompleter::selectionConfirmed,
-          this, &MainWindow::onCompleterActivated);
+  filteredCompleter->setCompletionMode(QCompleter::UnfilteredPopupCompletion);
+
+  // 2つ目の QLineEdit 用の FilteredCompleter を作成して接続（独立）
+  filteredCompleter2 = new FilteredCompleter(this);
+  filteredCompleter2->setCandidates(randomStrings);
+  filteredCompleter2->attachTo(lineEdit2);
+  filteredCompleter2->setCaseSensitivity(Qt::CaseInsensitive);
+  filteredCompleter2->setCompletionMode(QCompleter::UnfilteredPopupCompletion);
   
   // タイマーを開始して時刻を更新
   timer = new QTimer(this);

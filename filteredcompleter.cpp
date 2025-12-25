@@ -1,12 +1,18 @@
 #include "filteredcompleter.h"
+#include "filterutils.h"
 #include <QLineEdit>
+#include <QAbstractItemView>
 #include <QRandomGenerator>
 
 FilteredCompleter::FilteredCompleter(QObject *parent) : QObject(parent) {
   model = new QStringListModel(this);
   completer = new QCompleter(model, this);
   completer->setCaseSensitivity(Qt::CaseInsensitive);
-  completer->setCompletionMode(QCompleter::PopupCompletion);
+  // Use UnfilteredPopupCompletion: we supply a filtered model ourselves
+  completer->setCompletionMode(QCompleter::UnfilteredPopupCompletion);
+
+  // default filter uses shared utility
+  filterFunc = defaultAndFilter;
 
   connect(completer, QOverload<const QString &>::of(&QCompleter::activated),
           this, &FilteredCompleter::onActivated);
@@ -19,6 +25,10 @@ FilteredCompleter::~FilteredCompleter() {}
 void FilteredCompleter::setCandidates(const QStringList &list) {
   allCandidates = list;
   model->setStringList(allCandidates);
+}
+
+void FilteredCompleter::setFilterFunction(std::function<bool(const QString &candidate, const QString &text)> func) {
+  if (func) filterFunc = std::move(func);
 }
 
 void FilteredCompleter::attachTo(QLineEdit *lineEdit) {
@@ -42,12 +52,11 @@ void FilteredCompleter::onTextChanged(const QString &text) {
     filtered = allCandidates;
   } else {
     for (const QString &s : allCandidates) {
-      if (s.contains(text, Qt::CaseInsensitive)) filtered.append(s);
+      if (filterFunc(s, text)) filtered.append(s);
     }
   }
   model->setStringList(filtered);
   if (!text.isEmpty() && !filtered.isEmpty()) {
-    completer->setCompletionPrefix(text);
     completer->complete();
   }
 }

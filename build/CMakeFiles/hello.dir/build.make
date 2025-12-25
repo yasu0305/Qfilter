@@ -124,6 +124,7 @@ hello: CMakeFiles/hello.dir/hello_autogen/mocs_compilation.cpp.o
 hello: CMakeFiles/hello.dir/main.cpp.o
 hello: CMakeFiles/hello.dir/mainwindow.cpp.o
 hello: CMakeFiles/hello.dir/build.make
+hello: libfilteredcompleter.a
 hello: /usr/lib/x86_64-linux-gnu/libQt6Widgets.so.6.2.4
 hello: /usr/lib/x86_64-linux-gnu/libQt6Gui.so.6.2.4
 hello: /usr/lib/x86_64-linux-gnu/libQt6Core.so.6.2.4

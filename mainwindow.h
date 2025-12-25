@@ -27,8 +27,10 @@ private:
   QLabel *timeLabel;
   QTimer *timer;
   QLineEdit *lineEdit;
+  QLineEdit *lineEdit2;
   QStringList randomStrings;
   // FilteredCompleter を使用
   class FilteredCompleter *filteredCompleter = nullptr;
+  class FilteredCompleter *filteredCompleter2 = nullptr;
 };
 #endif // MAINWINDOW_H
