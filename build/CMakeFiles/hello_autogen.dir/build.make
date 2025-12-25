@@ -69,9 +69,8 @@ include CMakeFiles/hello_autogen.dir/progress.make
 CMakeFiles/hello_autogen: hello_autogen/timestamp
 
 hello_autogen/timestamp: /usr/lib/qt6/libexec/moc
-hello_autogen/timestamp: /usr/lib/qt6/libexec/uic
 hello_autogen/timestamp: CMakeFiles/hello_autogen.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/yasuyuki/Qt/hello/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Automatic MOC and UIC for target hello"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/yasuyuki/Qt/hello/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Automatic MOC for target hello"
 	/home/yasuyuki/.local/bin/cmake -E cmake_autogen /home/yasuyuki/Qt/hello/build/CMakeFiles/hello_autogen.dir/AutogenInfo.json ""
 	/home/yasuyuki/.local/bin/cmake -E touch /home/yasuyuki/Qt/hello/build/hello_autogen/timestamp
 

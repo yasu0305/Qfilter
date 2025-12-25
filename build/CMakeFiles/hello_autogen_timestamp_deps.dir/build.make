@@ -66,9 +66,8 @@ include CMakeFiles/hello_autogen_timestamp_deps.dir/compiler_depend.make
 # Include the progress variables for this target.
 include CMakeFiles/hello_autogen_timestamp_deps.dir/progress.make
 
-CMakeFiles/hello_autogen_timestamp_deps: /usr/lib/qt6/libexec/uic
-CMakeFiles/hello_autogen_timestamp_deps: /usr/lib/qt6/libexec/moc
 CMakeFiles/hello_autogen_timestamp_deps: /usr/lib/x86_64-linux-gnu/libQt6Widgets.so.6.2.4
+CMakeFiles/hello_autogen_timestamp_deps: /usr/lib/qt6/libexec/moc
 
 hello_autogen_timestamp_deps: CMakeFiles/hello_autogen_timestamp_deps
 hello_autogen_timestamp_deps: CMakeFiles/hello_autogen_timestamp_deps.dir/build.make

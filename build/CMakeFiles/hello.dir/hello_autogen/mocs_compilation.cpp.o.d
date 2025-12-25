@@ -1,7 +1,7 @@
 CMakeFiles/hello.dir/hello_autogen/mocs_compilation.cpp.o: \
  /home/yasuyuki/Qt/hello/build/hello_autogen/mocs_compilation.cpp \
  /usr/include/stdc-predef.h \
- /home/yasuyuki/Qt/hello/build/hello_autogen/EWIEGA46WW/moc_analogclock.cpp \
+ /home/yasuyuki/Qt/hello/build/hello_autogen/EWIEGA46WW/moc_mainwindow.cpp \
  /usr/include/c++/11/memory /usr/include/c++/11/bits/stl_algobase.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \
@@ -117,9 +117,9 @@ CMakeFiles/hello.dir/hello_autogen/mocs_compilation.cpp.o: \
  /usr/include/c++/11/backward/auto_ptr.h \
  /usr/include/c++/11/pstl/glue_memory_defs.h \
  /usr/include/c++/11/pstl/execution_defs.h \
- /home/yasuyuki/Qt/hello/build/hello_autogen/EWIEGA46WW/../../../analogclock.h \
- /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QWidget \
- /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qwidget.h \
+ /home/yasuyuki/Qt/hello/build/hello_autogen/EWIEGA46WW/../../../mainwindow.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QMainWindow \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qmainwindow.h \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qtwidgetsglobal.h \
  /usr/include/x86_64-linux-gnu/qt6/QtGui/qtguiglobal.h \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/qglobal.h \
@@ -195,6 +195,7 @@ CMakeFiles/hello.dir/hello_autogen/mocs_compilation.cpp.o: \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/qversiontagging.h \
  /usr/include/x86_64-linux-gnu/qt6/QtGui/qtgui-config.h \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qtwidgets-config.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qwidget.h \
  /usr/include/x86_64-linux-gnu/qt6/QtGui/qwindowdefs.h \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/qobjectdefs.h \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/qnamespace.h \
@@ -315,25 +316,41 @@ CMakeFiles/hello.dir/hello_autogen/mocs_compilation.cpp.o: \
  /usr/include/x86_64-linux-gnu/qt6/QtGui/qcursor.h \
  /usr/include/x86_64-linux-gnu/qt6/QtGui/qbitmap.h \
  /usr/include/x86_64-linux-gnu/qt6/QtGui/qkeysequence.h \
- /home/yasuyuki/Qt/hello/build/hello_autogen/EWIEGA46WW/moc_grandfatherclock.cpp \
- /home/yasuyuki/Qt/hello/build/hello_autogen/EWIEGA46WW/../../../grandfatherclock.h \
- /home/yasuyuki/Qt/hello/build/hello_autogen/EWIEGA46WW/moc_gshockdigital.cpp \
- /home/yasuyuki/Qt/hello/build/hello_autogen/EWIEGA46WW/../../../gshockdigital.h \
- /home/yasuyuki/Qt/hello/build/hello_autogen/EWIEGA46WW/moc_mainwindow.cpp \
- /home/yasuyuki/Qt/hello/build/hello_autogen/EWIEGA46WW/../../../mainwindow.h \
- /home/yasuyuki/Qt/hello/build/hello_autogen/EWIEGA46WW/../../../analogclock.h \
- /home/yasuyuki/Qt/hello/build/hello_autogen/EWIEGA46WW/../../../rolexclock.h \
- /home/yasuyuki/Qt/hello/build/hello_autogen/EWIEGA46WW/../../../grandfatherclock.h \
- /home/yasuyuki/Qt/hello/build/hello_autogen/EWIEGA46WW/../../../gshockdigital.h \
- /home/yasuyuki/Qt/hello/build/hello_autogen/EWIEGA46WW/../../../othello.h \
- /usr/include/x86_64-linux-gnu/qt6/QtCore/QVector \
- /usr/include/x86_64-linux-gnu/qt6/QtCore/qvector.h \
- /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QMainWindow \
- /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qmainwindow.h \
- /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qwidget.h \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qtabwidget.h \
  /usr/include/x86_64-linux-gnu/qt6/QtGui/qicon.h \
- /home/yasuyuki/Qt/hello/build/hello_autogen/EWIEGA46WW/moc_othello.cpp \
- /home/yasuyuki/Qt/hello/build/hello_autogen/EWIEGA46WW/../../../othello.h \
- /home/yasuyuki/Qt/hello/build/hello_autogen/EWIEGA46WW/moc_rolexclock.cpp \
- /home/yasuyuki/Qt/hello/build/hello_autogen/EWIEGA46WW/../../../rolexclock.h
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QHBoxLayout \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qboxlayout.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qlayout.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qlayoutitem.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qboxlayout.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qgridlayout.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QCompleter \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qcompleter.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qabstractitemmodel.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qhash.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qvariant.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qmap.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qshareddata_impl.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qdebug.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qtextstream.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qstringconverter.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qset.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qcontiguouscache.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/QStringListModel \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qstringlistmodel.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QLineEdit \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qlineedit.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qframe.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtGui/qtextcursor.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtGui/qtextformat.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtGui/qpen.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtGui/qtextoption.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QLabel \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qlabel.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtGui/qpicture.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qiodevice.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtGui/qtextdocument.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qurl.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/QTimer \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qtimer.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qbasictimer.h

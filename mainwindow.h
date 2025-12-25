@@ -1,19 +1,15 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
-#include "analogclock.h"
-#include "rolexclock.h"
-#include "grandfatherclock.h"
-#include "gshockdigital.h"
-#include "othello.h"
 #include <QMainWindow>
+#include <QHBoxLayout>
+#include <QCompleter>
+#include <QStringListModel>
+#include <QLineEdit>
+#include <QLabel>
+#include <QTimer>
 
-
-QT_BEGIN_NAMESPACE
-namespace Ui {
-class MainWindow;
-}
-QT_END_NAMESPACE
+// 単純化: 標準の QLineEdit を使用します（CustomLineEdit を削除）
 
 class MainWindow : public QMainWindow {
   Q_OBJECT
@@ -21,13 +17,22 @@ class MainWindow : public QMainWindow {
 public:
   MainWindow(QWidget *parent = nullptr);
   ~MainWindow();
+  bool isUserInput = true;  // CustomLineEditからアクセス可能
 
-private slots:
+public slots:
   void updateTime();
+  void onLineEditTextChanged(const QString &text);
+  void onCompleterActivated(const QString &text);
+  void onCompleterHighlighted(const QString &text);
+  void onCompleterActivated(const QString &text);
 
 private:
-  Ui::MainWindow *ui;
-  class QLabel *timeLabel;
-  class QTimer *timer;
+  QStringList generateRandomStrings();
+  QLabel *timeLabel;
+  QTimer *timer;
+  QLineEdit *lineEdit;
+  QStringList randomStrings;
+  QStringListModel *completerModel;
+  QCompleter *completer;
 };
 #endif // MAINWINDOW_H

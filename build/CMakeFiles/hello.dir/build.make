@@ -111,86 +111,11 @@ CMakeFiles/hello.dir/mainwindow.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/hello.dir/mainwindow.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/yasuyuki/Qt/hello/mainwindow.cpp -o CMakeFiles/hello.dir/mainwindow.cpp.s
 
-CMakeFiles/hello.dir/analogclock.cpp.o: CMakeFiles/hello.dir/flags.make
-CMakeFiles/hello.dir/analogclock.cpp.o: /home/yasuyuki/Qt/hello/analogclock.cpp
-CMakeFiles/hello.dir/analogclock.cpp.o: CMakeFiles/hello.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/yasuyuki/Qt/hello/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/hello.dir/analogclock.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/hello.dir/analogclock.cpp.o -MF CMakeFiles/hello.dir/analogclock.cpp.o.d -o CMakeFiles/hello.dir/analogclock.cpp.o -c /home/yasuyuki/Qt/hello/analogclock.cpp
-
-CMakeFiles/hello.dir/analogclock.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/hello.dir/analogclock.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/yasuyuki/Qt/hello/analogclock.cpp > CMakeFiles/hello.dir/analogclock.cpp.i
-
-CMakeFiles/hello.dir/analogclock.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/hello.dir/analogclock.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/yasuyuki/Qt/hello/analogclock.cpp -o CMakeFiles/hello.dir/analogclock.cpp.s
-
-CMakeFiles/hello.dir/rolexclock.cpp.o: CMakeFiles/hello.dir/flags.make
-CMakeFiles/hello.dir/rolexclock.cpp.o: /home/yasuyuki/Qt/hello/rolexclock.cpp
-CMakeFiles/hello.dir/rolexclock.cpp.o: CMakeFiles/hello.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/yasuyuki/Qt/hello/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/hello.dir/rolexclock.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/hello.dir/rolexclock.cpp.o -MF CMakeFiles/hello.dir/rolexclock.cpp.o.d -o CMakeFiles/hello.dir/rolexclock.cpp.o -c /home/yasuyuki/Qt/hello/rolexclock.cpp
-
-CMakeFiles/hello.dir/rolexclock.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/hello.dir/rolexclock.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/yasuyuki/Qt/hello/rolexclock.cpp > CMakeFiles/hello.dir/rolexclock.cpp.i
-
-CMakeFiles/hello.dir/rolexclock.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/hello.dir/rolexclock.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/yasuyuki/Qt/hello/rolexclock.cpp -o CMakeFiles/hello.dir/rolexclock.cpp.s
-
-CMakeFiles/hello.dir/grandfatherclock.cpp.o: CMakeFiles/hello.dir/flags.make
-CMakeFiles/hello.dir/grandfatherclock.cpp.o: /home/yasuyuki/Qt/hello/grandfatherclock.cpp
-CMakeFiles/hello.dir/grandfatherclock.cpp.o: CMakeFiles/hello.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/yasuyuki/Qt/hello/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/hello.dir/grandfatherclock.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/hello.dir/grandfatherclock.cpp.o -MF CMakeFiles/hello.dir/grandfatherclock.cpp.o.d -o CMakeFiles/hello.dir/grandfatherclock.cpp.o -c /home/yasuyuki/Qt/hello/grandfatherclock.cpp
-
-CMakeFiles/hello.dir/grandfatherclock.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/hello.dir/grandfatherclock.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/yasuyuki/Qt/hello/grandfatherclock.cpp > CMakeFiles/hello.dir/grandfatherclock.cpp.i
-
-CMakeFiles/hello.dir/grandfatherclock.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/hello.dir/grandfatherclock.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/yasuyuki/Qt/hello/grandfatherclock.cpp -o CMakeFiles/hello.dir/grandfatherclock.cpp.s
-
-CMakeFiles/hello.dir/gshockdigital.cpp.o: CMakeFiles/hello.dir/flags.make
-CMakeFiles/hello.dir/gshockdigital.cpp.o: /home/yasuyuki/Qt/hello/gshockdigital.cpp
-CMakeFiles/hello.dir/gshockdigital.cpp.o: CMakeFiles/hello.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/yasuyuki/Qt/hello/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/hello.dir/gshockdigital.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/hello.dir/gshockdigital.cpp.o -MF CMakeFiles/hello.dir/gshockdigital.cpp.o.d -o CMakeFiles/hello.dir/gshockdigital.cpp.o -c /home/yasuyuki/Qt/hello/gshockdigital.cpp
-
-CMakeFiles/hello.dir/gshockdigital.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/hello.dir/gshockdigital.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/yasuyuki/Qt/hello/gshockdigital.cpp > CMakeFiles/hello.dir/gshockdigital.cpp.i
-
-CMakeFiles/hello.dir/gshockdigital.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/hello.dir/gshockdigital.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/yasuyuki/Qt/hello/gshockdigital.cpp -o CMakeFiles/hello.dir/gshockdigital.cpp.s
-
-CMakeFiles/hello.dir/othello.cpp.o: CMakeFiles/hello.dir/flags.make
-CMakeFiles/hello.dir/othello.cpp.o: /home/yasuyuki/Qt/hello/othello.cpp
-CMakeFiles/hello.dir/othello.cpp.o: CMakeFiles/hello.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/yasuyuki/Qt/hello/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/hello.dir/othello.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/hello.dir/othello.cpp.o -MF CMakeFiles/hello.dir/othello.cpp.o.d -o CMakeFiles/hello.dir/othello.cpp.o -c /home/yasuyuki/Qt/hello/othello.cpp
-
-CMakeFiles/hello.dir/othello.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/hello.dir/othello.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/yasuyuki/Qt/hello/othello.cpp > CMakeFiles/hello.dir/othello.cpp.i
-
-CMakeFiles/hello.dir/othello.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/hello.dir/othello.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/yasuyuki/Qt/hello/othello.cpp -o CMakeFiles/hello.dir/othello.cpp.s
-
 # Object files for target hello
 hello_OBJECTS = \
 "CMakeFiles/hello.dir/hello_autogen/mocs_compilation.cpp.o" \
 "CMakeFiles/hello.dir/main.cpp.o" \
-"CMakeFiles/hello.dir/mainwindow.cpp.o" \
-"CMakeFiles/hello.dir/analogclock.cpp.o" \
-"CMakeFiles/hello.dir/rolexclock.cpp.o" \
-"CMakeFiles/hello.dir/grandfatherclock.cpp.o" \
-"CMakeFiles/hello.dir/gshockdigital.cpp.o" \
-"CMakeFiles/hello.dir/othello.cpp.o"
+"CMakeFiles/hello.dir/mainwindow.cpp.o"
 
 # External object files for target hello
 hello_EXTERNAL_OBJECTS =
@@ -198,11 +123,6 @@ hello_EXTERNAL_OBJECTS =
 hello: CMakeFiles/hello.dir/hello_autogen/mocs_compilation.cpp.o
 hello: CMakeFiles/hello.dir/main.cpp.o
 hello: CMakeFiles/hello.dir/mainwindow.cpp.o
-hello: CMakeFiles/hello.dir/analogclock.cpp.o
-hello: CMakeFiles/hello.dir/rolexclock.cpp.o
-hello: CMakeFiles/hello.dir/grandfatherclock.cpp.o
-hello: CMakeFiles/hello.dir/gshockdigital.cpp.o
-hello: CMakeFiles/hello.dir/othello.cpp.o
 hello: CMakeFiles/hello.dir/build.make
 hello: /usr/lib/x86_64-linux-gnu/libQt6Widgets.so.6.2.4
 hello: /usr/lib/x86_64-linux-gnu/libQt6Gui.so.6.2.4
@@ -210,7 +130,7 @@ hello: /usr/lib/x86_64-linux-gnu/libQt6Core.so.6.2.4
 hello: /usr/lib/x86_64-linux-gnu/libGLX.so
 hello: /usr/lib/x86_64-linux-gnu/libOpenGL.so
 hello: CMakeFiles/hello.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/yasuyuki/Qt/hello/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable hello"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/yasuyuki/Qt/hello/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable hello"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/hello.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

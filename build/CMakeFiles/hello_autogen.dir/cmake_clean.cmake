@@ -1,6 +1,5 @@
 file(REMOVE_RECURSE
   "CMakeFiles/hello_autogen"
-  "hello_autogen/include/ui_mainwindow.h"
   "hello_autogen/mocs_compilation.cpp"
   "hello_autogen/timestamp"
 )

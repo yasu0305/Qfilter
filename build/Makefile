@@ -155,78 +155,6 @@ hello_autogen/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello_autogen.dir/build.make CMakeFiles/hello_autogen.dir/build
 .PHONY : hello_autogen/fast
 
-analogclock.o: analogclock.cpp.o
-.PHONY : analogclock.o
-
-# target to build an object file
-analogclock.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello.dir/build.make CMakeFiles/hello.dir/analogclock.cpp.o
-.PHONY : analogclock.cpp.o
-
-analogclock.i: analogclock.cpp.i
-.PHONY : analogclock.i
-
-# target to preprocess a source file
-analogclock.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello.dir/build.make CMakeFiles/hello.dir/analogclock.cpp.i
-.PHONY : analogclock.cpp.i
-
-analogclock.s: analogclock.cpp.s
-.PHONY : analogclock.s
-
-# target to generate assembly for a file
-analogclock.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello.dir/build.make CMakeFiles/hello.dir/analogclock.cpp.s
-.PHONY : analogclock.cpp.s
-
-grandfatherclock.o: grandfatherclock.cpp.o
-.PHONY : grandfatherclock.o
-
-# target to build an object file
-grandfatherclock.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello.dir/build.make CMakeFiles/hello.dir/grandfatherclock.cpp.o
-.PHONY : grandfatherclock.cpp.o
-
-grandfatherclock.i: grandfatherclock.cpp.i
-.PHONY : grandfatherclock.i
-
-# target to preprocess a source file
-grandfatherclock.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello.dir/build.make CMakeFiles/hello.dir/grandfatherclock.cpp.i
-.PHONY : grandfatherclock.cpp.i
-
-grandfatherclock.s: grandfatherclock.cpp.s
-.PHONY : grandfatherclock.s
-
-# target to generate assembly for a file
-grandfatherclock.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello.dir/build.make CMakeFiles/hello.dir/grandfatherclock.cpp.s
-.PHONY : grandfatherclock.cpp.s
-
-gshockdigital.o: gshockdigital.cpp.o
-.PHONY : gshockdigital.o
-
-# target to build an object file
-gshockdigital.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello.dir/build.make CMakeFiles/hello.dir/gshockdigital.cpp.o
-.PHONY : gshockdigital.cpp.o
-
-gshockdigital.i: gshockdigital.cpp.i
-.PHONY : gshockdigital.i
-
-# target to preprocess a source file
-gshockdigital.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello.dir/build.make CMakeFiles/hello.dir/gshockdigital.cpp.i
-.PHONY : gshockdigital.cpp.i
-
-gshockdigital.s: gshockdigital.cpp.s
-.PHONY : gshockdigital.s
-
-# target to generate assembly for a file
-gshockdigital.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello.dir/build.make CMakeFiles/hello.dir/gshockdigital.cpp.s
-.PHONY : gshockdigital.cpp.s
-
 hello_autogen/mocs_compilation.o: hello_autogen/mocs_compilation.cpp.o
 .PHONY : hello_autogen/mocs_compilation.o
 
@@ -299,54 +227,6 @@ mainwindow.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello.dir/build.make CMakeFiles/hello.dir/mainwindow.cpp.s
 .PHONY : mainwindow.cpp.s
 
-othello.o: othello.cpp.o
-.PHONY : othello.o
-
-# target to build an object file
-othello.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello.dir/build.make CMakeFiles/hello.dir/othello.cpp.o
-.PHONY : othello.cpp.o
-
-othello.i: othello.cpp.i
-.PHONY : othello.i
-
-# target to preprocess a source file
-othello.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello.dir/build.make CMakeFiles/hello.dir/othello.cpp.i
-.PHONY : othello.cpp.i
-
-othello.s: othello.cpp.s
-.PHONY : othello.s
-
-# target to generate assembly for a file
-othello.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello.dir/build.make CMakeFiles/hello.dir/othello.cpp.s
-.PHONY : othello.cpp.s
-
-rolexclock.o: rolexclock.cpp.o
-.PHONY : rolexclock.o
-
-# target to build an object file
-rolexclock.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello.dir/build.make CMakeFiles/hello.dir/rolexclock.cpp.o
-.PHONY : rolexclock.cpp.o
-
-rolexclock.i: rolexclock.cpp.i
-.PHONY : rolexclock.i
-
-# target to preprocess a source file
-rolexclock.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello.dir/build.make CMakeFiles/hello.dir/rolexclock.cpp.i
-.PHONY : rolexclock.cpp.i
-
-rolexclock.s: rolexclock.cpp.s
-.PHONY : rolexclock.s
-
-# target to generate assembly for a file
-rolexclock.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/hello.dir/build.make CMakeFiles/hello.dir/rolexclock.cpp.s
-.PHONY : rolexclock.cpp.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -358,15 +238,6 @@ help:
 	@echo "... hello_autogen"
 	@echo "... hello_autogen_timestamp_deps"
 	@echo "... hello"
-	@echo "... analogclock.o"
-	@echo "... analogclock.i"
-	@echo "... analogclock.s"
-	@echo "... grandfatherclock.o"
-	@echo "... grandfatherclock.i"
-	@echo "... grandfatherclock.s"
-	@echo "... gshockdigital.o"
-	@echo "... gshockdigital.i"
-	@echo "... gshockdigital.s"
 	@echo "... hello_autogen/mocs_compilation.o"
 	@echo "... hello_autogen/mocs_compilation.i"
 	@echo "... hello_autogen/mocs_compilation.s"
@@ -376,12 +247,6 @@ help:
 	@echo "... mainwindow.o"
 	@echo "... mainwindow.i"
 	@echo "... mainwindow.s"
-	@echo "... othello.o"
-	@echo "... othello.i"
-	@echo "... othello.s"
-	@echo "... rolexclock.o"
-	@echo "... rolexclock.i"
-	@echo "... rolexclock.s"
 .PHONY : help
 
 
