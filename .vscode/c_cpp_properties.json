@@ -1,27 +1,21 @@
 {
     "configurations": [
         {
-            "name": "Linux",
+            "name": "macOS",
             "includePath": [
                 "${workspaceFolder}/**",
                 "${workspaceFolder}/build",
-                "${workspaceFolder}/build/filteredcompleter_autogen/include",
-                "/usr/include",
-                "/usr/include/x86_64-linux-gnu",
-                "/usr/include/x86_64-linux-gnu/qt6",
-                "/usr/include/x86_64-linux-gnu/qt6/QtCore",
-                "/usr/include/x86_64-linux-gnu/qt6/QtGui",
-                "/usr/include/x86_64-linux-gnu/qt6/QtWidgets"
+                "${workspaceFolder}/build/filteredcompleter_autogen/include"
             ],
             "defines": [
                 "QT_CORE_LIB",
                 "QT_GUI_LIB",
                 "QT_WIDGETS_LIB"
             ],
-            "compilerPath": "/usr/bin/g++",
+            "compilerPath": "/usr/bin/clang++",
             "cStandard": "c17",
             "cppStandard": "c++17",
-            "intelliSenseMode": "linux-gcc-x64",
+            "intelliSenseMode": "macos-clang-x64",
             "compileCommands": "${workspaceFolder}/build/compile_commands.json",
             "configurationProvider": "ms-vscode.cmake-tools"
         }
