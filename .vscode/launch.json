@@ -15,6 +15,7 @@
                     "value": "${env:DISPLAY}"
                 }
             ],
+            "console": "integratedTerminal",
             "externalConsole": false,
             "MIMode": "gdb",
             "setupCommands": [

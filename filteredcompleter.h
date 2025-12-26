@@ -3,7 +3,6 @@
 
 #include <QObject>
 #include <QStringList>
-#include <QStringListModel>
 #include <QCompleter>
 #include <functional>
 
@@ -36,6 +35,7 @@
 */
 
 class QLineEdit;
+class QStringListModel;
 
 class FilteredCompleter : public QObject {
   Q_OBJECT

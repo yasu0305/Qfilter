@@ -278,7 +278,6 @@
   /usr/include/x86_64-linux-gnu/gnu/stubs.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/QObject \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/QStringList \
-  /usr/include/x86_64-linux-gnu/qt6/QtCore/QStringListModel \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qabstractitemmodel.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qalgorithms.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qanystringview.h \
@@ -342,7 +341,6 @@
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qstringalgorithms.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qstringconverter.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qstringlist.h \
-  /usr/include/x86_64-linux-gnu/qt6/QtCore/qstringlistmodel.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qstringliteral.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qstringmatcher.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qstringtokenizer.h \

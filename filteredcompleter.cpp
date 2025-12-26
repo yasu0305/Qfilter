@@ -2,7 +2,10 @@
 #include "filterutils.h"
 #include <QLineEdit>
 #include <QAbstractItemView>
-#include <QRandomGenerator>
+#include <QObject>
+#include <QStringListModel>
+#include <QCompleter>
+#include <QSignalBlocker>
 
 FilteredCompleter::FilteredCompleter(QObject *parent) : QObject(parent) {
   model = new QStringListModel(this);
@@ -14,10 +17,10 @@ FilteredCompleter::FilteredCompleter(QObject *parent) : QObject(parent) {
   // default filter uses shared utility
   filterFunc = defaultAndFilter;
 
-  connect(completer, QOverload<const QString &>::of(&QCompleter::activated),
-          this, &FilteredCompleter::onActivated);
-  connect(completer, QOverload<const QString &>::of(&QCompleter::highlighted),
-          this, &FilteredCompleter::onHighlighted);
+    QObject::connect(completer, QOverload<const QString &>::of(&QCompleter::activated),
+         this, &FilteredCompleter::onActivated);
+    QObject::connect(completer, QOverload<const QString &>::of(&QCompleter::highlighted),
+         this, &FilteredCompleter::onHighlighted);
 }
 
 FilteredCompleter::~FilteredCompleter() {}
@@ -35,7 +38,7 @@ void FilteredCompleter::attachTo(QLineEdit *lineEdit) {
   if (!lineEdit) return;
   attachedLineEdit = lineEdit;
   completer->setWidget(lineEdit);
-  connect(lineEdit, &QLineEdit::textChanged, this, &FilteredCompleter::onTextChanged);
+  QObject::connect(lineEdit, &QLineEdit::textChanged, this, &FilteredCompleter::onTextChanged);
 }
 
 void FilteredCompleter::setCaseSensitivity(Qt::CaseSensitivity cs) {
@@ -64,9 +67,8 @@ void FilteredCompleter::onTextChanged(const QString &text) {
 void FilteredCompleter::onActivated(const QString &text) {
   emit selectionConfirmed(text);
   if (attachedLineEdit) {
-    attachedLineEdit->blockSignals(true);
+    QSignalBlocker blocker(attachedLineEdit);
     attachedLineEdit->setText(text);
-    attachedLineEdit->blockSignals(false);
   }
   if (completer->popup()) completer->popup()->hide();
 }

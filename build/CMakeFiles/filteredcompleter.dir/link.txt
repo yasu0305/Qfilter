@@ -1,2 +1,0 @@
-/usr/bin/ar qc libfilteredcompleter.a CMakeFiles/filteredcompleter.dir/filteredcompleter_autogen/mocs_compilation.cpp.o CMakeFiles/filteredcompleter.dir/filteredcompleter.cpp.o CMakeFiles/filteredcompleter.dir/filterutils.cpp.o
-/usr/bin/ranlib libfilteredcompleter.a

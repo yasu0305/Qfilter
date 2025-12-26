@@ -12,4 +12,8 @@ bool defaultAndFilter(const QString &candidate, const QString &text);
 // Helper to split tokens from text (unicode-aware whitespace)
 QStringList splitTokens(const QString &text);
 
+// Generate `count` random strings of `length` characters each.
+// Characters include letters, digits and common symbols.
+QStringList generateRandomStrings(int count, int length);
+
 #endif // FILTERUTILS_H
