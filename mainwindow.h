@@ -8,22 +8,21 @@ class QTimer;
 class QLineEdit;
 class FilteredCompleter;
 
-class MainWindow : public QMainWindow
-{
-  Q_OBJECT
-public:
-  MainWindow(QWidget *parent = nullptr);
-  ~MainWindow();
+class MainWindow : public QMainWindow {
+    Q_OBJECT
+  public:
+    MainWindow(QWidget* parent = nullptr);
+    ~MainWindow();
 
-public slots:
-  void updateTime();
-  void onCompleterActivated(const QString &text);
+  public slots:
+    void updateTime();
+    void onCompleterActivated(const QString& text);
 
-private:
-  QLabel *timeLabel = nullptr;
-  QTimer *timer = nullptr;
-  QLineEdit *lineEdit = nullptr;
-  FilteredCompleter *filteredCompleter = nullptr;
+  private:
+    QLabel* timeLabel = nullptr;
+    QTimer* timer = nullptr;
+    QLineEdit* lineEdit = nullptr;
+    FilteredCompleter* filteredCompleter = nullptr;
 };
 
 #endif // MAINWINDOW_H
