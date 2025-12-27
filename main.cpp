@@ -1,18 +1,10 @@
-#include "mainwindow.h"
-
 #include <QApplication>
-#include <QTranslator>
+#include "mainwindow.h"
 
 int main(int argc, char *argv[])
 {
-    QApplication a(argc, argv);
-
-    QTranslator translator;
-    if (translator.load("hello_ja_JP")) {
-        a.installTranslator(&translator);
-    }
-
+    QApplication app(argc, argv);
     MainWindow w;
     w.show();
-    return a.exec();
+    return app.exec();
 }

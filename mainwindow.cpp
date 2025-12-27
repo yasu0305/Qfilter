@@ -1,5 +1,30 @@
-#include "mainwindow.h"
+#include <QStringList>
+#include <QString>
+#include <QRandomGenerator>
+// ...existing code...
 
+QStringList generateRandomStrings(int count, int length)
+{
+  const QString pool = "abcdefghijklmnopqrstuvwxyz0123456789_/";
+  const int poolSize = pool.size();
+  QStringList out;
+  out.reserve(count);
+  for (int i = 0; i < count; ++i)
+  {
+    QString s;
+    s.resize(length);
+    for (int j = 0; j < length; ++j)
+    {
+      int idx = QRandomGenerator::global()->bounded(poolSize);
+      s[j] = pool.at(idx);
+    }
+    out.append(s);
+  }
+  return out;
+}
+
+#include "mainwindow.h"
+#include "filteredcompleter.h"
 #include <QDateTime>
 #include <QLabel>
 #include <QTimer>
@@ -11,11 +36,13 @@
 #include <QFontMetrics>
 #include <QDebug>
 
-#include "filteredcompleter.h"
-#include "filterutils.h"
-
 MainWindow::MainWindow(QWidget *parent)
-    : QMainWindow(parent), timeLabel(new QLabel(this)), timer(new QTimer(this)) {
+    : QMainWindow(parent),
+      timeLabel(new QLabel(this)),
+      timer(new QTimer(this)),
+      lineEdit(nullptr),
+      filteredCompleter(nullptr)
+{
   QWidget *w = new QWidget(this);
   auto *mainLay = new QVBoxLayout(w);
   mainLay->setSpacing(0);
@@ -41,15 +68,9 @@ MainWindow::MainWindow(QWidget *parent)
   filteredCompleter->attachTo(lineEdit);
   connect(filteredCompleter, &FilteredCompleter::selectionConfirmed, this, &MainWindow::onCompleterActivated);
 
-  // fonts
-  QFont f = QApplication::font();
-  f.setPointSize(qMax(10, f.pointSize()));
-
-  QFont timeFont = f;
-  timeFont.setPointSize(qMax(14, f.pointSize() + 4));
+  QFont timeFont = QApplication::font();
+  timeFont.setPointSize(14);
   timeLabel->setFont(timeFont);
-
-  // ensure the label won't be clipped when resizing: set minimum size from font metrics
   QFontMetrics tfm(timeFont);
   const QString sample = QDateTime::currentDateTime().toString("yyyy-MM-dd HH:mm:ss");
   const int timeW = tfm.horizontalAdvance(sample) + 20; // padding
@@ -58,9 +79,6 @@ MainWindow::MainWindow(QWidget *parent)
   timeLabel->setMinimumHeight(timeH);
   timeLabel->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Fixed);
 
-  lineEdit->setFont(f);
-
-  // Add stretch below the line edit to push everything to the top
   mainLay->addStretch();
 
   setCentralWidget(w);
@@ -74,11 +92,12 @@ MainWindow::MainWindow(QWidget *parent)
 
 MainWindow::~MainWindow() {}
 
-void MainWindow::updateTime() {
+void MainWindow::updateTime()
+{
   timeLabel->setText(QDateTime::currentDateTime().toString("yyyy-MM-dd HH:mm:ss"));
 }
 
-void MainWindow::onCompleterActivated(const QString &text) {
+void MainWindow::onCompleterActivated(const QString &text)
+{
   qDebug() << "Completer selected:" << text;
 }
-

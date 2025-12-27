@@ -1,78 +1,90 @@
-FilteredCompleter
-=================
 
-Lightweight utility for filtered QLineEdit completion.
+# FilteredCompleter
 
-特徴
-----
-- QLineEdit 用の効率的で再利用可能なフィルタ付き補完
-- フィルタロジックはカスタマイズ可能（デフォルトはトークンAND検索）
-- Qt Widgets/Core 以外のUI依存なし
-- 大量候補リストにも対応
-- 確定時のみシグナル発行（途中でテキストが書き換わらない）
 
-最近のリファクタ
-----------------
-- ヘッダ依存を最小化しビルドを高速化
-- QSignalBlocker による安全なシグナルブロック
-- MainWindow 側での重複テキスト更新を排除
 
-使い方
-------
-Qtウィジェットコード例：
+QtのQLineEditに「AND検索」フィルタ付きの補完機能を簡単に追加できる軽量クラスです。
 
+## 特徴
+- QLineEditに簡単にアタッチできる
+- 候補リストをスペース区切りAND検索でフィルタ
+- 大文字小文字区別なし・補完モード固定（UnfilteredPopupCompletion）
+- 補完候補の選択確定時にシグナルを発行
+- シンプルなAPIと実装
+
+## 使い方
+
+
+### 1. インスタンス生成
 ```cpp
 #include "filteredcompleter.h"
+FilteredCompleter* fc = new FilteredCompleter(this);
+```
 
-// インスタンス生成
-auto *fc = new FilteredCompleter(this);
-fc->setCandidates(myStringList); // QStringList
-fc->attachTo(myLineEdit);
 
-// オプション
-fc->setCaseSensitivity(Qt::CaseInsensitive);
-fc->setCompletionMode(QCompleter::UnfilteredPopupCompletion);
+### 2. 候補リストをセット
+```cpp
+QStringList candidates = {"apple", "banana", "grape", "orange", "pineapple"};
+fc->setCandidates(candidates);
+```
 
+
+### 3. QLineEditにアタッチ
+```cpp
+fc->attachTo(ui->lineEdit);
+```
+
+
+### 4. 補完確定時のシグナルを受け取る
+```cpp
 connect(fc, &FilteredCompleter::selectionConfirmed, this, [](const QString &text){
-  qDebug() << "確定:" << text;
+  qDebug() << "Confirmed:" << text;
 });
 ```
 
-備考
-----
-- デフォルトフィルタは空白区切りトークンのAND検索（大文字小文字無視）
-- 矢印キーでのハイライトではQLineEdit値は書き換わらず、Enterやクリックで確定
 
-ビルド
-------
-標準CMakeビルド（`hello`サンプル付き）:
+## デフォルトの動作
+- 入力テキストをスペースで分割し、すべての単語を含む候補のみ表示（AND検索）
+- 補完候補の選択確定時にQLineEditのテキストを更新し、`selectionConfirmed`シグナルを発行
+- 大文字小文字区別なし、補完モードはUnfilteredPopupCompletionで固定
 
+
+## サンプルmain.cpp
+```cpp
+#include <QApplication>
+#include <QLineEdit>
+#include "filteredcompleter.h"
+
+int main(int argc, char *argv[]) {
+  QApplication app(argc, argv);
+  QLineEdit lineEdit;
+  lineEdit.show();
+  FilteredCompleter fc;
+  fc.setCandidates(QStringList{"apple", "banana", "grape", "orange", "pineapple"});
+  fc.attachTo(&lineEdit);
+  QObject::connect(&fc, &FilteredCompleter::selectionConfirmed, [](const QString &text){
+    qDebug() << "Confirmed:" << text;
+  });
+  return app.exec();
+}
+```
+
+
+
+## ビルド・実行
+標準CMakeビルド:
 ```bash
 mkdir -p build && cd build
 cmake ..
 cmake --build . -- -j$(nproc)
+./qfilter
 ```
 
-テスト
-------
-ユニットテスト（filterutils_test）:
 
-```bash
-cmake --build . --target filterutils_test
-./filterutils_test
-```
+## ライセンス
+MIT License
 
-実行例
-------
-アプリ起動:
-
-```bash
-cmake --build . --target hello
-./hello
-```
-
-環境要件
---------
+## 環境要件
 - Qt6 (Widgets/Core)
 - CMake 3.19以上
 - g++/clang++ (C++17)

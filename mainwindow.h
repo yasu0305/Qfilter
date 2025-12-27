@@ -8,9 +8,9 @@ class QTimer;
 class QLineEdit;
 class FilteredCompleter;
 
-class MainWindow : public QMainWindow {
+class MainWindow : public QMainWindow
+{
   Q_OBJECT
-
 public:
   MainWindow(QWidget *parent = nullptr);
   ~MainWindow();

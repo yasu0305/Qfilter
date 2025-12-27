@@ -1,5 +1,20 @@
 #include "filteredcompleter.h"
-#include "filterutils.h"
+#include <QLineEdit>
+#include <QAbstractItemView>
+#include <QObject>
+#include <QStringListModel>
+#include <QCompleter>
+#include <QSignalBlocker>
+#include <QStringList>
+#include <QString>
+#include <QRegularExpression>
+
+// AND検索用のトークン分割関数
+static QStringList splitTokens(const QString &text)
+{
+  static const QRegularExpression sep("\\s+", QRegularExpression::UseUnicodePropertiesOption);
+  return text.split(sep, Qt::SkipEmptyParts);
+}
 #include <QLineEdit>
 #include <QAbstractItemView>
 #include <QObject>
@@ -7,72 +22,76 @@
 #include <QCompleter>
 #include <QSignalBlocker>
 
-FilteredCompleter::FilteredCompleter(QObject *parent) : QObject(parent) {
-  model = new QStringListModel(this);
-  completer = new QCompleter(model, this);
+FilteredCompleter::FilteredCompleter(QObject *parent)
+    : QObject(parent),
+      model(new QStringListModel(this)),
+      completer(new QCompleter(model, this)),
+      attachedLineEdit(nullptr)
+{
   completer->setCaseSensitivity(Qt::CaseInsensitive);
-  // Use UnfilteredPopupCompletion: we supply a filtered model ourselves
   completer->setCompletionMode(QCompleter::UnfilteredPopupCompletion);
-
-  // default filter uses shared utility
-  filterFunc = defaultAndFilter;
-
-    QObject::connect(completer, QOverload<const QString &>::of(&QCompleter::activated),
-         this, &FilteredCompleter::onActivated);
-    QObject::connect(completer, QOverload<const QString &>::of(&QCompleter::highlighted),
-         this, &FilteredCompleter::onHighlighted);
+  QObject::connect(completer, QOverload<const QString &>::of(&QCompleter::activated),
+                   this, &FilteredCompleter::onActivated);
 }
 
-FilteredCompleter::~FilteredCompleter() {}
+FilteredCompleter::~FilteredCompleter() = default;
 
-void FilteredCompleter::setCandidates(const QStringList &list) {
+void FilteredCompleter::setCandidates(const QStringList &list)
+{
   allCandidates = list;
   model->setStringList(allCandidates);
 }
 
-void FilteredCompleter::setFilterFunction(std::function<bool(const QString &candidate, const QString &text)> func) {
-  if (func) filterFunc = std::move(func);
-}
-
-void FilteredCompleter::attachTo(QLineEdit *lineEdit) {
-  if (!lineEdit) return;
+void FilteredCompleter::attachTo(QLineEdit *lineEdit)
+{
+  if (!lineEdit)
+    return;
   attachedLineEdit = lineEdit;
   completer->setWidget(lineEdit);
   QObject::connect(lineEdit, &QLineEdit::textChanged, this, &FilteredCompleter::onTextChanged);
 }
 
-void FilteredCompleter::setCaseSensitivity(Qt::CaseSensitivity cs) {
-  completer->setCaseSensitivity(cs);
-}
 
-void FilteredCompleter::setCompletionMode(QCompleter::CompletionMode mode) {
-  completer->setCompletionMode(mode);
-}
-
-void FilteredCompleter::onTextChanged(const QString &text) {
+void FilteredCompleter::onTextChanged(const QString &text)
+{
   QStringList filtered;
-  if (text.isEmpty()) {
+  if (text.isEmpty())
+  {
     filtered = allCandidates;
-  } else {
-    for (const QString &s : allCandidates) {
-      if (filterFunc(s, text)) filtered.append(s);
+  }
+  else
+  {
+    // AND検索: textをスペースで分割し、すべての単語を含む候補のみ抽出
+    QStringList tokens = splitTokens(text);
+    for (const QString &s : allCandidates)
+    {
+      bool match = true;
+      for (const QString &token : tokens)
+      {
+        if (!s.contains(token, completer->caseSensitivity()))
+        {
+          match = false;
+          break;
+        }
+      }
+      if (match)
+        filtered.append(s);
     }
   }
   model->setStringList(filtered);
-  if (!text.isEmpty() && !filtered.isEmpty()) {
+  if (!text.isEmpty() && !filtered.isEmpty())
+  {
     completer->complete();
   }
 }
 
-void FilteredCompleter::onActivated(const QString &text) {
+void FilteredCompleter::onActivated(const QString &text)
+{
   emit selectionConfirmed(text);
-  if (attachedLineEdit) {
-    QSignalBlocker blocker(attachedLineEdit);
+  if (attachedLineEdit)
+  {
     attachedLineEdit->setText(text);
   }
-  if (completer->popup()) completer->popup()->hide();
-}
-
-void FilteredCompleter::onHighlighted(const QString & /*text*/) {
-  // intentionally empty to avoid highlighted items immediately changing the line edit
+  if (completer->popup())
+    completer->popup()->hide();
 }

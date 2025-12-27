@@ -5,16 +5,8 @@
             "name": "Qt Debug (LLDB)",
             "type": "lldb",
             "request": "launch",
-            "program": "${workspaceFolder}/build/hello",
+            "program": "${workspaceFolder}/build/qfilter",
             "cwd": "${workspaceFolder}/build",
-            "stopAtEntry": false,
-            "externalConsole": true,
-            "environment": [
-                {
-                    "name": "DYLD_LIBRARY_PATH",
-                    "value": "/usr/local/opt/qt/lib"
-                }
-            ]
         }
     ]
 }
