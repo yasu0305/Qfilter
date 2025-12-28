@@ -1,1 +1,51 @@
+
+# CMake/Qt build
 build/
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+*.user
+*.pro.user
+*.qbs.user
+*.autosave
+*.moc
+*.obj
+*.o
+*.a
+*.so
+*.dll
+*.exe
+*.app
+*.dSYM/
+*.vcxproj*
+*.sln
+*.ncb
+*.suo
+*.pdb
+*.ilk
+*.idb
+*.aps
+*.pch
+*.log
+*.tmp
+*.bak
+*.swp
+*.swo
+*~
+
+# Qt Creator
+.qmake.stash
+.qmake.cache
+.qtc_clangd/
+.qtcreator/
+
+# VSCode
+.vscode/
+
+# OS/Editor
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Icon?
+__pycache__/
